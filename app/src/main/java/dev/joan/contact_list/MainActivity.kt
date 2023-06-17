@@ -1,9 +1,11 @@
 package dev.joan.contact_list
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.constraintlayout.helper.widget.Carousel.Adapter
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import dev.joan.contact_list.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -12,6 +14,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val button=findViewById<FloatingActionButton>(R.id.fabAddContact)
+        button.setOnClickListener {
+            val intent= Intent(this@MainActivity,NewContact::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onResume() {
